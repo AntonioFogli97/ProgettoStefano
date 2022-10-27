@@ -1,17 +1,25 @@
-let slideIndex = 0;
-showSlides();
+let gallery = ['cane', 'monte', 'tricheco'];
 
-function showSlides() {
-  let i;
-  let slides = $( ".mySlides" );
-  for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-  }
-  if (slideIndex > slides.length) {slideIndex = 1}
-  let delta
-  if (slideIndex - 2 == -1) {delta = slides.length} else { delta = slideIndex - 2 }
-  $(slides[delta]).slideDown();
-  $(slides[slideIndex]).slideDown();
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-  slideIndex++;
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+function generateDiv(index){
+  let box = document.createElement('div');
+  let image = document.createElement('img');
+  image.style.width = '100%'
+  image.src = "./resources/"+ gallery[index] + ".jpg";
+  box.appendChild(image);
+  let baseBox = document.getElementById('slideshow-container')
+  baseBox.insertBefore(box, baseBox.firstChild);
+  $(box).hide().slideDown(2000);
+  setTimeout(() => { $(box).slideUp(2000); }, 2000);
+}
+
+function carousel(){
+  generateDiv(0);
 }
