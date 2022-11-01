@@ -1,4 +1,5 @@
 let gallery = ['dog', 'mountain', 'walrus'];
+let currentStyle = 1;
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -38,6 +39,14 @@ function carousel(index){
   box.appendChild(image);
   var container = document.getElementById('carousel');
   container.insertBefore(box, container.firstChild);
+}
+
+function changeStyle(){
+  let nextStyle = (currentStyle + 1) <= 3 ? currentStyle +1 : 1
+  document.getElementsByClassName('main-container-'+ currentStyle)[0].className = 'main-container-'+ nextStyle;
+  document.getElementsByClassName('carousel-'+ currentStyle)[0].className = 'carousel-'+ nextStyle;
+  document.getElementsByClassName('preview-'+ currentStyle)[0].className = 'preview-'+ nextStyle;
+  currentStyle = nextStyle;
 }
 
 $( document ).ready(carousel(0));

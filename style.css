@@ -1,26 +1,93 @@
-.main-container{
+.main-container-1{
   height: 100%;
   width: 100%;
   position: relative;
   border-style: dotted;
+  border-color: darkcyan;
 }
 
-.carousel{
+.main-container-2{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-style: solid;
+  border-color: lightcoral;
+}
+
+.main-container-3{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-style: double;
+  border-color: rgb(98, 32, 159);
+}
+
+.carousel-1{
   width: 49.75%;
   position: absolute;
   top: 0;
   left: 0;
   height: 99.5%;
   border-style: solid;
+  border-color: brown;
 }
 
-.preview{
+.carousel-2{
+  width: 49.75%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 99.5%;
+  border-style: double;
+  border-color: darkgreen;
+}
+
+.carousel-3{
+  width: 49.75%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 99.5%;
+  border-style: dotted;
+  border-color: deepskyblue;
+}
+
+.preview-1{
+  width: 49.75%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 99.5%;
+  border-style: double;
+  border-color: dimgrey;
+}
+
+.preview-2{
+  width: 49.75%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 99.5%;
+  border-style: dotted;
+  border-color: aqua;
+}
+
+.preview-3{
   width: 49.75%;
   position: absolute;
   top: 0;
   right: 0;
   height: 99.5%;
   border-style: solid;
+  border-color: darkslategray;
+}
+
+.button{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30.5%;
 }
 
 .carousel-image{
