@@ -1,4 +1,4 @@
-let gallery = ['cane', 'monte', 'tricheco'];
+let gallery = ['dog', 'mountain', 'walrus'];
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -8,18 +8,26 @@ function sleep(milliseconds) {
   } while (currentDate - date < milliseconds);
 }
 
-function generateDiv(index){
+function carousel(index){
+  let nextIndex = (index + 1) < gallery.length ? index +1 : 0
   let box = document.createElement('div');
-  let image = document.createElement('img');
-  image.style.width = '100%'
-  image.src = "./resources/"+ gallery[index] + ".jpg";
+  box.style.display = 'none';
+  let image = new Image();
+  image.onload = function() { 
+    $(box).slideDown(
+      function(){
+        setTimeout(function() {
+          $(box).slideUp(function(){
+            $(box).remove();
+          });
+          carousel(nextIndex);
+        }, 2000)
+      });
+  };
+  image.src = "./resources/"+ gallery[index] +".jpg";
   box.appendChild(image);
-  let baseBox = document.getElementById('slideshow-container')
-  baseBox.insertBefore(box, baseBox.firstChild);
-  $(box).hide().slideDown(2000);
-  setTimeout(() => { $(box).slideUp(2000); }, 2000);
+  var container = document.getElementById('container');
+  container.insertBefore(box, container.firstChild);
 }
 
-function carousel(){
-  generateDiv(0);
-}
+$( document ).ready(carousel(0));
