@@ -11,8 +11,18 @@ function sleep(milliseconds) {
 function carousel(index){
   let nextIndex = (index + 1) < gallery.length ? index +1 : 0
   let box = document.createElement('div');
-  box.style.display = 'none';
+  box.className = "carousel-image"
   let image = new Image();
+  image.onclick = function() {
+    var previewBox = document.createElement('div');
+    var preview = document.getElementById('preview');
+    preview.innerHTML = '';
+    let imagePreview = new Image();
+    imagePreview.src = "./resources/"+ gallery[index] +".jpg";
+    previewBox.className = "preview-image";
+    previewBox.appendChild(imagePreview);
+    preview.appendChild(previewBox);
+  }
   image.onload = function() { 
     $(box).slideDown(
       function(){
@@ -26,7 +36,7 @@ function carousel(index){
   };
   image.src = "./resources/"+ gallery[index] +".jpg";
   box.appendChild(image);
-  var container = document.getElementById('container');
+  var container = document.getElementById('carousel');
   container.insertBefore(box, container.firstChild);
 }
 
